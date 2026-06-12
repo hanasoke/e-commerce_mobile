@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Jahitin Aja'),
+      home: const OnboardingPage(),
     );
   }
 }
@@ -122,5 +122,51 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class OnboardingPage extends StatelessWidget {
+  const OnboardingPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          // BACKGROUND IMAGE
+          Positioned.fill(
+            child: Image.asset('assets/thumbnail/first.jpg', fit: BoxFit.cover),
+          ),
+
+          // GRADIENT OVERLAY
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.transparent, Colors.black.withOpacity(0.6)],
+                ),
+              ),
+            ),
+          ),
+
+          // CONTENT
+          Positioned(
+            left: 24,
+            right: 24,
+            bottom: 48,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // TITLE
+                const Text('Tailor-made clothing'),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+    throw UnimplementedError();
   }
 }
