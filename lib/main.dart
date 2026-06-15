@@ -18,9 +18,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Hanasu',
+      title: 'Jahitin Aja',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 255, 0, 0),
+        ),
       ),
       home: const OnboardingPage(),
     );
@@ -96,7 +98,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
+            const Text(
+              'Ini adalah aplikasi yang mempertemukan penjahit dengan tukang jahit',
+            ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
