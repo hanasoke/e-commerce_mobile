@@ -190,8 +190,9 @@ class OnboardingPage extends StatelessWidget {
                     child: const Text(
                       'Get started',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
+                        color: Colors.white70,
                       ),
                     ),
                   ),
