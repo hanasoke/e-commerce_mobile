@@ -39,8 +39,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
+      bottomNavigationBar: _bottomNav(),
     );
   }
 
@@ -98,13 +97,148 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  _searchBar() {}
+  Widget _searchBar() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(30),
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8)],
+      ),
+      child: const TextField(
+        decoration: InputDecoration(
+          icon: Icon(Icons.search),
+          hintText: 'Search tailors styles...',
+          border: InputBorder.none,
+        ),
+      ),
+    );
+  }
 
-  _featuredCard() {}
+  Widget _featuredCard() {
+    return Container(
+      height: 180,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: const Color(0xff0A2A66),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Tailored Premium\nSuits For Business & Formal',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 12),
+                Text(
+                  '⭐ 4.8   151+ Orders',
+                  style: TextStyle(color: Colors.white70),
+                ),
+                Spacer(),
+                Text(
+                  'View Profile',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Image.asset(
+              'assets/clothes/vest.png',
+              width: 100,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
-  _categorySection() {}
+  Widget _categorySection() {
+    final categories = ['Cloths', 'Bags', 'Shoes', 'Uniform', 'Suit'];
 
-  _topTailors() {}
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: categories.map((e) {
+        return Column(
+          children: [
+            CircleAvatar(
+              radius: 28,
+              backgroundColor: Colors.white,
+              child: Icon(Icons.checkroom, color: Colors.blue.shade900),
+            ),
+            const SizedBox(height: 8),
+            Text(e),
+          ],
+        );
+      }).toList(),
+    );
+  }
+
+  Widget _topTailors() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Top-Rated Tailors',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 16),
+        Row(
+          children: [
+            _tailorCard('Thomas', 'assets/seller/3.jpg'),
+            const SizedBox(width: 12),
+            _tailorCard('Edward', 'assets/seller/4.jpg'),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _tailorCard(String name, String image) {
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          children: [
+            CircleAvatar(radius: 36, backgroundImage: AssetImage(image)),
+            const SizedBox(height: 12),
+            Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
+            const Text('⭐ 4.8'),
+            const SizedBox(height: 12),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff0A2A66),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              onPressed: () {},
+              child: const Text('Find Your Tailor'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  _bottomNav() {}
 }
 
 class OnboardingPage extends StatelessWidget {
