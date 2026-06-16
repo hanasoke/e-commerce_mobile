@@ -41,45 +41,70 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+      backgroundColor: const Color(0xffF6F7FB),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _header(),
+              const SizedBox(height: 20),
+              _searchBar(),
+              const SizedBox(height: 20),
+              _featuredCard(),
+              const SizedBox(height: 24),
+              _categorySection(),
+              const SizedBox(height: 24),
+              _topTailors(),
+            ],
+          ),
+        ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Ini adalah aplikasi yang mempertemukan penjahit dengan tukang jahit',
+    );
+  }
+
+  Widget _header() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            const CircleAvatar(
+              radius: 22,
+              backgroundImage: AssetImage('assets/seller/1.jpg'),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            const SizedBox(width: 12),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Hello, Sakib',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text('Good morning', style: TextStyle(color: Colors.grey)),
+              ],
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        IconButton(
+          icon: const Icon(Icons.notifications_none),
+          onPressed: () {},
+        ),
+      ],
     );
   }
+
+  _searchBar() {}
+
+  _featuredCard() {}
+
+  _categorySection() {}
+
+  _topTailors() {}
 }
 
 class OnboardingPage extends StatelessWidget {
