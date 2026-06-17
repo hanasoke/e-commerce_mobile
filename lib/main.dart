@@ -198,9 +198,9 @@ class _MyHomePageState extends State<MyHomePage> {
         const SizedBox(height: 16),
         Row(
           children: [
-            _tailorCard('Thomas', 'assets/seller/3.jpg'),
+            _tailorCard('Hatsune Miku', 'assets/seller/7.jpg'),
             const SizedBox(width: 12),
-            _tailorCard('Edward', 'assets/seller/4.jpg'),
+            _tailorCard('Nakano Miku', 'assets/seller/8.jpg'),
           ],
         ),
       ],
@@ -230,7 +230,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               onPressed: () {},
-              child: const Text('Find Your Tailor'),
+              child: const Text(
+                'Find Your Tailor',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ],
         ),
@@ -261,7 +264,10 @@ class OnboardingPage extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.transparent, Colors.black.withOpacity(0.6)],
+                  colors: [
+                    Colors.transparent,
+                    Colors.black.withValues(alpha: 0.6),
+                  ],
                 ),
               ),
             ),
