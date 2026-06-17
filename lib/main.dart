@@ -200,9 +200,27 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             _tailorCard('Hatsune Miku', 'assets/seller/hatsune_miku.jpg'),
             const SizedBox(width: 12),
-            _tailorCard('Nakano Miku', 'assets/seller/nakano_miku.png'),
+            _tailorCard('Nakano Miku', 'assets/seller/nakano_miku.jpg'),
+          ],
+        ),
+        Row(
+          children: [
+            _tailorCard('Ajeng Utami', 'assets/seller/ajeng_utami.png'),
             const SizedBox(width: 12),
-            _tailorCard('Sasuke', 'assets/seller/sasuke.png'),
+            _tailorCard('Sasuke', 'assets/seller/sasuke.jpg'),
+          ],
+        ),
+        Row(
+          children: [
+            _tailorCard('Hanas Bayu Pratama', 'assets/seller/hanas.jpg'),
+            const SizedBox(width: 12),
+            _tailorCard('Mitsuba AOI', 'assets/seller/mitsuba_aoi.jpg'),
+          ],
+        ),
+        Row(
+          children: [
+            _tailorCard('Saitama', 'assets/seller/saitama.png'),
+            const SizedBox(width: 12),
           ],
         ),
       ],
