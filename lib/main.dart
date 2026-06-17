@@ -198,9 +198,11 @@ class _MyHomePageState extends State<MyHomePage> {
         const SizedBox(height: 16),
         Row(
           children: [
-            _tailorCard('Hatsune Miku', 'assets/seller/7.jpg'),
+            _tailorCard('Hatsune Miku', 'assets/seller/hatsune_miku.jpg'),
             const SizedBox(width: 12),
-            _tailorCard('Nakano Miku', 'assets/seller/8.jpg'),
+            _tailorCard('Nakano Miku', 'assets/seller/nakano_miku.png'),
+            const SizedBox(width: 12),
+            _tailorCard('Sasuke', 'assets/seller/sasuke.png'),
           ],
         ),
       ],
