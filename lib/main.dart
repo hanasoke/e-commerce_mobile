@@ -188,6 +188,16 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _topTailors() {
+    final tailors = [
+      {'name': 'Hatsune Miku', 'img': 'assets/seller/hatsune_miku.jpg'},
+      {'name': 'Nakano Miku', 'img': 'assets/seller/nakano_miku.jpg'},
+      {'name': 'Ajeng Utami', 'img': 'assets/seller/ajeng_utami.png'},
+      {'name': 'Sasuke', 'img': 'assets/seller/sasuke.jpg'},
+      {'name': 'Hanas Bayu Pratama', 'img': 'assets/seller/hanas.jpg'},
+      {'name': 'Mitsuba AOI', 'img': 'assets/seller/mitsuba_aoi.jpg'},
+      {'name': 'Saitama', 'img': 'assets/seller/saitama.png'},
+    ];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -196,53 +206,47 @@ class _MyHomePageState extends State<MyHomePage> {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 16),
-        Row(
-          children: [
-            _tailorCard('Hatsune Miku', 'assets/seller/hatsune_miku.jpg'),
-            const SizedBox(width: 12),
-            _tailorCard('Nakano Miku', 'assets/seller/nakano_miku.jpg'),
-          ],
-        ),
-        Row(
-          children: [
-            _tailorCard('Ajeng Utami', 'assets/seller/ajeng_utami.png'),
-            const SizedBox(width: 12),
-            _tailorCard('Sasuke', 'assets/seller/sasuke.jpg'),
-          ],
-        ),
-        Row(
-          children: [
-            _tailorCard('Hanas Bayu Pratama', 'assets/seller/hanas.jpg'),
-            const SizedBox(width: 12),
-            _tailorCard('Mitsuba AOI', 'assets/seller/mitsuba_aoi.jpg'),
-          ],
-        ),
-        Row(
-          children: [
-            _tailorCard('Saitama', 'assets/seller/saitama.png'),
-            const SizedBox(width: 12),
-          ],
+
+        GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: tailors.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 16,
+            childAspectRatio: 0.75,
+          ),
+          itemBuilder: (content, index) {
+            return _tailorCard(tailors[index]['name']!, tailors[index]['img']!);
+          },
         ),
       ],
     );
   }
 
   Widget _tailorCard(String name, String image) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Column(
-          children: [
-            CircleAvatar(radius: 36, backgroundImage: AssetImage(image)),
-            const SizedBox(height: 12),
-            Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
-            const Text('⭐ 4.8'),
-            const SizedBox(height: 12),
-            ElevatedButton(
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CircleAvatar(radius: 36, backgroundImage: AssetImage(image)),
+          const SizedBox(height: 8),
+          Text(
+            name,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          const Text('⭐ 4.8'),
+          const SizedBox(height: 8),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xff0A2A66),
                 shape: RoundedRectangleBorder(
@@ -255,8 +259,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(color: Colors.white),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
