@@ -167,20 +167,31 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _categorySection() {
-    final categories = ['Cloths', 'Bags', 'Shoes', 'Uniform', 'Suit'];
+    final categories = [
+      {'label': 'Cloths', 'icon': 'assets/icons/clothes.png'},
+      {'label': 'Bags', 'icon': 'assets/icons/bags.png'},
+      {'label': 'Shoes', 'icon': 'assets/icons/shoes.png'},
+      {'label': 'Uniform', 'icon': 'assets/icons/uniform.png'},
+      {'label': 'Suit', 'icon': 'assets/icons/suit.png'},
+    ];
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: categories.map((e) {
+      children: categories.map((item) {
         return Column(
           children: [
             CircleAvatar(
               radius: 28,
               backgroundColor: Colors.white,
-              child: Icon(Icons.checkroom, color: Colors.blue.shade900),
+              child: Image.asset(
+                item['icon']!,
+                width: 28,
+                height: 28,
+                fit: BoxFit.contain,
+              ),
             ),
             const SizedBox(height: 8),
-            Text(e),
+            Text(item['label']!),
           ],
         );
       }).toList(),
