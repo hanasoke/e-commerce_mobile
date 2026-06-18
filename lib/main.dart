@@ -180,14 +180,23 @@ class _MyHomePageState extends State<MyHomePage> {
       children: categories.map((item) {
         return Column(
           children: [
-            CircleAvatar(
-              radius: 28,
-              backgroundColor: Colors.white,
-              child: Image.asset(
-                item['icon']!,
-                width: 28,
-                height: 28,
-                fit: BoxFit.contain,
+            Container(
+              width: 56,
+              height: 56,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 8,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Image.asset(item['icon']!),
               ),
             ),
             const SizedBox(height: 8),
