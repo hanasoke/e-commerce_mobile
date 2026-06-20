@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:test1/detail.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -273,7 +274,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const DetailPage(
+                      image: 'assets/clothes/vest.png',
+                      title: 'Customize your shirt',
+                      price: 15.75,
+                    ),
+                  ),
+                );
+              },
               child: const Text(
                 'Find Your Tailor',
                 style: TextStyle(color: Colors.white),

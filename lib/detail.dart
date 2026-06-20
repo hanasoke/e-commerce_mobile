@@ -43,7 +43,121 @@ class DetailPage extends StatelessWidget {
                   right: 0,
                   top: 40,
                   child: Column(
-                    children: const [_ColorDot(color: Colors.teal)],
+                    children: const [
+                      _ColorDot(color: Colors.teal),
+                      SizedBox(height: 12),
+                      _ColorDot(color: Colors.indigo),
+                      SizedBox(height: 12),
+                      _ColorDot(color: Colors.black),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 24),
+
+            // ===== PRICE + 3D BUTTON =====
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '\$${price.toStringAsFixed(2)}',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xff0A2A66),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: const Text('View in 3D'),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 24),
+
+            // ===== CUSTOM OPTIONS =====
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                _OptionItem(icon: Icons.checkroom, label: 'Collar'),
+                _OptionItem(icon: Icons.cut, label: 'Sleeves'),
+                _OptionItem(icon: Icons.inventory_2, label: 'Pocket'),
+                _OptionItem(icon: Icons.view_day, label: 'Placket'),
+                _OptionItem(icon: Icons.layers, label: 'Half placket'),
+              ],
+            ),
+
+            const SizedBox(height: 32),
+
+            // ===== ACTION BUTTONS =====
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff0A2A66),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    onPressed: () {},
+                    child: const Text('Upload Design'),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    onPressed: () {},
+                    child: const Text('Call Tailor'),
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 32),
+
+            // ===== BOTTOM ACTION =====
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    onPressed: () {},
+                    child: const Text('Add to cart'),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff0A2A66),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    onPressed: () {},
+                    child: const Text('Order'),
                   ),
                 ),
               ],
